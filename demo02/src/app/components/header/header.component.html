@@ -1,0 +1,85 @@
+<p>
+  header works!
+</p>
+
+<p>
+  {{count}}
+</p>
+
+<p>
+  1+1 = {{1+1}}
+</p>
+
+<p>
+  {{count == 1}}
+</p>
+
+<hr/>
+
+<h4>属性绑定</h4>
+
+<div [id]="myid" [title]="msg">测试</div>
+
+
+<hr>
+<h4>ngFor</h4>
+
+<ul>
+  <li *ngFor="let item of items;let i = index;">
+   {{i}} ==> {{item | json}}
+  </li>
+</ul>
+
+<hr>
+<h4>ngIf</h4>
+<p *ngIf="items.length > 3">这是 ngIF 判断是否显示</p>
+
+<hr>
+<h4>ngSwitch</h4>
+
+<p>score : {{score}}</p>
+
+<ul [ngSwitch]="score">
+    <li *ngSwitchCase="1">已支付</li>
+    <li *ngSwitchCase="2">订单已经确认</li>
+    <li *ngSwitchCase="3">已发货</li>
+    <li *ngSwitchDefault>无效</li>
+</ul>
+
+<button (click)="addScore()">增加score </button>
+<button (click)="reduceScore()">减少score </button>
+
+
+<hr>
+<h4>事件</h4>
+<input type="text" (keyup)="keyupAction($event)">
+
+
+<hr>
+<h4>双向绑定</h4>
+<p>value ==>{{value}}</p>
+<input type="text" [(ngModel)]="value" >
+
+
+<hr>
+<h4>ng-Class</h4>
+
+<div [ngClass]="{'red': true, 'blue': false}">
+    这是一个 div
+</div>
+
+<ul>
+    <li *ngFor="let item of arr; let i = index">
+    <span [ngClass]="{'red': i== 0}">{{item}}</span>
+    </li>
+</ul>
+
+<hr>
+<h4>ngStyle</h4>
+<div [ngStyle]="{'background-color':'green'}">你好 ngStyle</div>
+
+<div [ngStyle]="{'background-color':attr}">你好 ngStyle</div>
+
+<hr>
+<h4>管道</h4>
+<p>{{today | date:'yyyy-MM-dd HH:mm:ss' }}</p>
